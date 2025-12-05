@@ -1,17 +1,14 @@
 import axios from "axios";
 import { Routes, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import EditPage from "../src/pages/Edit";
-// import Add from "../src/pages/Add";
-// import ListPage from "../src/pages/List";
-// // import { getErrorMap } from "zod/v3";
+import { maxSize } from "zod";
 
 function ListPage() {
   const [tours, setTours] = useState([]);
   useEffect(() => {
     const getTours = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3001/tours");
+        const { data } = await axios.get("http://localhost:3000/tours");
         setTours(data);
       } catch (error) {
         toast.error(error);
@@ -20,10 +17,18 @@ function ListPage() {
     getTours();
   }, []);
 
+  const cateName = (categoryId) => {
+    if(categoryId === "1"){
+      return "Tour nội địa"
+    }else if(categoryId === "2"){
+      return "Tour ngoại quốc"
+    }
+  }
+
   const handleDelete = async id => {
     if(confirm('Delete')){
       try{
-        await axios.delete("http://localhost:3001/tours/" + id);
+        await axios.delete("http://localhost:3000/tours/" + id);
         setTours(tours.filter(tour => tour.id !==id));
       }catch(error){
         toast.error(error);
@@ -61,6 +66,9 @@ function ListPage() {
                 Số lượng
               </th>
               <th className="px-4 py-2 border border-gray-300 text-left">
+                Danh mục
+              </th>
+              <th className="px-4 py-2 border border-gray-300 text-left">
                 Hành động
               </th>
             </tr>
@@ -85,15 +93,18 @@ function ListPage() {
                 <td className="px-4 py-2 border border-gray-300">
                   {tour.image}
                 </td>
-                <td className="px-4 py-2 border border-gray-300">
+                <td className="px-4 py-2 border border-gray-300 overflow-hidden whitespace-nowrap max-w-2.5 truncate">
                   {tour.description}
                 </td>
                 <td className="px-4 py-2 border border-gray-300">
                   {tour.available}
                 </td>
                 <td className="px-4 py-2 border border-gray-300">
+                  {cateName(tour.category)}
+                </td>
+                <td className="px-4 py-2 border border-gray-300">
                   <Link
-                    to="/edit"
+                    to={`/edit/${tour.id}`}
                     className="rounded-2xl px-2 border-0 bg-blue-500 text-white py-1 mx-1"
                   >
                     Sửa
@@ -107,13 +118,9 @@ function ListPage() {
           </tbody>
         </table>
       </div>
-      {/* <Routes>
-          <Route path="/list" element={<ListPage />} />
-          <Route path="/add" element={<AddPage />} />
-          <Route path="/edit" element={<EditPage />} />
-        </Routes> */}
     </div>
   );
 }
+
 
 export default ListPage;

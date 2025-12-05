@@ -1,44 +1,48 @@
 {
   "tours": [
     {
-      "id": 1,
       "name": "Hà Nội - Sapa 3N2D",
+      "price": 2500000,
+      "category": "2",
       "destination": "Sapa",
       "duration": "3 ngày 2 đêm",
-      "price": 2500000,
       "image": "https://picsum.photos/400/300?random=1",
-      "description": "Khám phá Sapa với những ruộng bậc thang tuyệt đẹp",
-      "available": 15
+      "description": "Khám phá Sapa với những ruộng bậc thang tuyệt đẹpa",
+      "available": 15,
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Hạ Long - Cát Bà 2N1D",
+      "name": "Hạ Lonh - Cát ông 2N3D",
+      "price": 100000,
+      "category": "",
       "destination": "Hạ Long",
-      "duration": "2 ngày 1 đêm",
-      "price": 1800000,
+      "duration": "3 ngày 10 đêm",
       "image": "https://picsum.photos/400/300?random=2",
       "description": "Du thuyền vịnh Hạ Long - Kỳ quan thiên nhiên thế giới",
-      "available": 20
+      "available": 20,
+      "id": 5
     },
     {
-      "id": 3,
-      "name": "Hạ Long - Cát Bà 2N1D",
+      "name": "Hạ Lonh - Cát ông 2N3D",
+      "price": 20000000,
+      "category": "1",
       "destination": "Hạ Long",
-      "duration": "2 ngày 1 đêm",
-      "price": 1800000,
-      "image": "https://picsum.photos/400/300?random=2",
-      "description": "Du thuyền vịnh Hạ Long - Kỳ quan thiên nhiên thế giới",
-      "available": 20
+      "duration": "3 ngày 2 đêm",
+      "image": "https://picsum.photos/400/300?random=5",
+      "description": "Du lịch Hạ Long là trải nghiệm khám phá kỳ quan thiên nhiên nổi tiếng với hàng nghìn hòn đảo đá vôi lớn nhỏ, những hang động kỳ vĩ và cảnh quan biển xanh biếc. Vịnh Hạ Long được ví như một \"bảo tàng thiên nhiên\" khổng lồ, mang đến trải nghiệm du ngoạn trên biển, khám phá các đảo và hang động độc đáo như Hang Sửng Sốt, cùng các đảo đá vôi có hình dáng đặc biệt như Hòn Trống Mái. ",
+      "available": 20,
+      "id": 6
     },
     {
-      "id": 4,
-      "name": "Hạ Long - Cát Bà 2N1D",
-      "destination": "Hạ Long",
-      "duration": "2 ngày 1 đêm",
-      "price": 1800000,
+      "name": "Hạ Lonh - Cát ông 2N3D",
+      "price": 20000000,
+      "category": "1",
+      "destination": "Hạ Lonh - Cát ông 2N3D",
+      "duration": "Hạ Lonh - Cát ông 2N3D",
       "image": "https://picsum.photos/400/300?random=2",
-      "description": "Du thuyền vịnh Hạ Long - Kỳ quan thiên nhiên thế giới",
-      "available": 20
+      "description": "assa asdwd qw q qeqwe q ",
+      "available": 12,
+      "id": 7
     }
   ],
   "destinations": [
@@ -59,6 +63,28 @@
       "name": "Đà Lạt",
       "icon": "🌺",
       "description": "Thành phố ngàn hoa"
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$YkQEewM1plZANfgDRFIhNu//lC1Hky4xedJI2H6dM7twbVtzzJBQG",
+      "id": 1
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$vhisxLZn3FyJFYv/lo37x.yzLtXG3sq4Wn1VK2cIYISo4xr9cTiJ6",
+      "id": 2
+    },
+    {
+      "email": "admin@123.com",
+      "password": "$2a$10$tOQ9kuuU.61Mv2HE3h/kkejf.Th.63QjwsaqYdUIXYOgIsPY9V.3a",
+      "id": 3
+    },
+    {
+      "email": "chjkcaycuctop@gmail.com",
+      "password": "$2a$10$7l25tr29fLiSXI.jXva8yOSo7fDjaaXskkLZ0mAuyuu7ud6FID86C",
+      "id": 4
     }
   ]
 }

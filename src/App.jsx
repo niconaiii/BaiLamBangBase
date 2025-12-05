@@ -3,6 +3,9 @@ import { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import AddPage from "../src/pages/Add";
 import ListPage from "../src/pages/List";
+import EditPage from "../src/pages/Edit";
+import RegisterPage from "../src/pages/register";
+import LoginPage from "./pages/login";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -32,24 +35,24 @@ function App() {
 
           {/* Right menu desktop */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#" className="hover:text-gray-200">
+            <Link to="/login" className="hover:text-gray-200">
               Đăng nhập
-            </a>
-            <a href="#" className="hover:text-gray-200">
+            </Link>
+            <Link to="/register" className="hover:text-gray-200">
               Đăng ký
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
-
-      {/* MAIN CONTENT */}
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
-          {/* <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB501</h1>
-          <p className="text-lg text-gray-600">Ứng dụng quản lý dữ liệu</p> */}
-        {/* Routing List */}
         <Routes>
-          <Route path="/list" element={<ListPage />} />
-          <Route path="/add" element={<AddPage />} />
+          <Route element={<AdminLayout />}>
+            <Route path="/list" element={<ListPage />} />
+            <Route path="/add" element={<AddPage />} />
+            <Route path="/edit/:id" element={<EditPage />} />
+          </Route>
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </div>
       <Toaster />
