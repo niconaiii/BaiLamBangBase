@@ -13,42 +13,43 @@ function AddPage() {
   const [available, setAvailable] = useState("");
 
   const validateData = () => {
+    let message = "";
     if (!name) {
-      return "Vui lòng nhập tên tour";
+      message = "Vui lòng nhập tên tour";
     }
     if (!category) {
-      return "Vui lòng chọn danh mục tour";
+      message = "Vui lòng chọn danh mục tour";
     }
     if (!destination) {
-      return "Vui lòng nhập điểm đến tour";
+      message = "Vui lòng nhập điểm đến tour";
     }
     if (!duration) {
-      return "Vui lòng nhập thời lượng tour";
+      message = "Vui lòng nhập thời lượng tour";
     }
     const priceNum = Number(price);
     if (!price || isNaN(priceNum) || priceNum <= 0) {
-      return "Vui lòng nhập giá lớn hơn 0";
+      message = "Vui lòng nhập giá lớn hơn 0";
     }
     if (!image) {
-      return "Vui lòng nhập ảnh tour";
+      message = "Vui lòng nhập ảnh tour";
     }
     if (!description || description.trim() === "") {
-      return "Vui lòng nhập miêu tả tour";
+      message = "Vui lòng nhập miêu tả tour";
     }
     if (description.length < 10) {
-      return "Vui lòng nhập miêu tả dài hơn (tối thiểu 10 ký tự)";
+      message = "Vui lòng nhập miêu tả dài hơn (tối thiểu 10 ký tự)";
     }
     if (description.length > 1000) {
-      return "Vui lòng nhập miêu tả ngắn hơn (tối đa 1000 ký tự)";
+      message = "Vui lòng nhập miêu tả ngắn hơn (tối đa 1000 ký tự)";
     }
     const availableNum = Number(available);
     if (!available || isNaN(availableNum)) {
-      return "Vui lòng nhập số lượng tour còn lại";
+      message = "Vui lòng nhập số lượng tour còn lại";
     }
     if (availableNum < 0) {
-      return "Vui lòng nhập số lượng tour lớn hơn 0";
+      message = "Vui lòng nhập số lượng tour lớn hơn 0";
     }
-    return "";
+    return message;
   };
 
   const handleSubmit = async (event) => {

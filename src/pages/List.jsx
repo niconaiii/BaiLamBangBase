@@ -1,10 +1,11 @@
 import axios from "axios";
 import { Routes, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { maxSize } from "zod";
+
 
 function ListPage() {
   const [tours, setTours] = useState([]);
+  const [keyword, setKeyword] = useState("");
   useEffect(() => {
     const getTours = async () => {
       try {
@@ -18,27 +19,45 @@ function ListPage() {
   }, []);
 
   const cateName = (categoryId) => {
-    if(categoryId === "1"){
-      return "Tour nội địa"
-    }else if(categoryId === "2"){
-      return "Tour ngoại quốc"
+    if (categoryId === "1") {
+      return "Tour nội địa";
+    } else if (categoryId === "2") {
+      return "Tour ngoại quốc";
     }
-  }
+  };
 
-  const handleDelete = async id => {
-    if(confirm('Delete')){
-      try{
+  const handleDelete = async (id) => {
+    if (confirm("Delete")) {
+      try {
         await axios.delete("http://localhost:3000/tours/" + id);
-        setTours(tours.filter(tour => tour.id !==id));
-      }catch(error){
+        setTours(tours.filter((tour) => tour.id !== id));
+      } catch (error) {
         toast.error(error);
       }
     }
-  }
+  };
+  const handleSearch = () => {
+    if (keyword) {
+      const data = tours.filter((tour) =>
+        tour.name.toLowerCase().includes(keyword.toLocaleLowerCase())
+      );
+      setTours(data);
+    }
+    
+  };
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách</h1>
-
+      <div className="my-2 flex">
+        <input
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+          type="text"
+          id="text"
+          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button onClick={handleSearch}>Tìm kiếm</button>
+      </div>
       <div className="overflow-x-auto">
         <table className="w-full border border-gray-300 rounded-lg">
           <thead className="bg-emerald-600">
@@ -109,7 +128,10 @@ function ListPage() {
                   >
                     Sửa
                   </Link>
-                  <button onClick={() => handleDelete(tour.id)} className="rounded-2xl px-2 border-0 hover:bg-black bg-red-500 text-white py-1 mx-1">
+                  <button
+                    onClick={() => handleDelete(tour.id)}
+                    className="rounded-2xl px-2 border-0 hover:bg-black bg-red-500 text-white py-1 mx-1"
+                  >
                     Xóa
                   </button>
                 </td>
@@ -121,6 +143,5 @@ function ListPage() {
     </div>
   );
 }
-
 
 export default ListPage;

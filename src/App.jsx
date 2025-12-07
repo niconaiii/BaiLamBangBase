@@ -46,11 +46,11 @@ function App() {
       </nav>
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <Routes>
-          <Route element={<AdminLayout />}>
+          {/* <Route element={<AdminLayout />}> */}
             <Route path="/list" element={<ListPage />} />
             <Route path="/add" element={<AddPage />} />
             <Route path="/edit/:id" element={<EditPage />} />
-          </Route>
+          {/* </Route> */}
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
